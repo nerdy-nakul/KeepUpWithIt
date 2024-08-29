@@ -11,7 +11,7 @@ function App() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/tasks")
+    fetch("http://localhost:8000/api/tasks")
       .then((response) => response.json())
       .then((data) => {
         const formattedData = data.map((event) => ({
@@ -25,7 +25,7 @@ function App() {
 
   const handleAddTask = (title, start, end, priority) => {
     const newTask = { title, start, end, priority };
-    fetch("http://localhost:5000/api/tasks", {
+    fetch("http://localhost:8000/api/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

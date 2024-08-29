@@ -4,8 +4,11 @@ const connectDB = require("./config/connectDB");
 const taskRoutes = require("./routes/taskRoutes");
 const stickyNoteRoutes = require("./routes/stickyNoteRoutes");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 connectDB();
 

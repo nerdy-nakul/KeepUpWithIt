@@ -28,14 +28,14 @@ function StickyNotes() {
   const [color, setColor] = useState(getRandomColor());
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/sticky-notes")
+    fetch("http://localhost:8000/api/sticky-notes")
       .then((response) => response.json())
       .then((data) => setNotes(data));
   }, []);
 
   const handleAddNote = () => {
     const newNote = { content, color, x: 0, y: 0 };
-    fetch("http://localhost:5000/api/sticky-notes", {
+    fetch("http://localhost:8000/api/sticky-notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function StickyNotes() {
   };
 
   const handleStop = (e, data, noteId) => {
-    fetch(`http://localhost:5000/api/sticky-notes/${noteId}`, {
+    fetch(`http://localhost:8000/api/sticky-notes/${noteId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function StickyNotes() {
   };
 
   const handleDeleteNote = (noteId) => {
-    fetch(`http://localhost:5000/api/sticky-notes/${noteId}`, {
+    fetch(`http://localhost:8000/api/sticky-notes/${noteId}`, {
       method: "DELETE",
     }).then(() => {
       setNotes(notes.filter((note) => note._id !== noteId));
