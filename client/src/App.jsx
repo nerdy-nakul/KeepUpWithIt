@@ -11,7 +11,7 @@ function App() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/tasks")
+    fetch("https://keep-up-with-it-6cyx.vercel.app/api/tasks")
       .then((response) => response.json())
       .then((data) => {
         const formattedData = data.map((event) => ({
@@ -25,7 +25,7 @@ function App() {
 
   const handleAddTask = (title, start, end, priority) => {
     const newTask = { title, start, end, priority };
-    fetch("http://localhost:8000/api/tasks", {
+    fetch("https://keep-up-with-it-6cyx.vercel.app/api/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
